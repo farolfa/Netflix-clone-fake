@@ -1,2 +1,2 @@
 # Netflix-clone
- um lugar de testes de tecnologias
+Projeto feito para simular a pagina e login page da Netflix
