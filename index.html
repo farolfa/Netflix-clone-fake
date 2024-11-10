@@ -1,591 +1,68 @@
-@ -1,590 +0,0 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-<style>
-    *{
-        margin: 0px;
-        padding: 0px;
-    }
-    body{
-        background-color: rgb(0, 0, 0);
-    }
-    a{
-        text-decoration: none;
-        color: white;
-    }
-    a:hover{
-        color: rgba(255, 255, 255, 0.664);
-    }
-    li{
-        display: inline-block; padding: 10px;
-    }
-    header{
-        position: absolute;
-        width: 100%;
-        
-    }
-   
-    .botao1{
-        background-color: white;
-        
-    }
- .botao1:hover{
-    background-color: rgba(255, 255, 255, 0.5);
- }
- .botao{
-    background-color: rgba(128, 128, 128, 0.801);
-    margin-left: 10px;
- }
- .botao:hover{
-    background-color: rgba(128, 128, 128, 0.473);
- }
- main{
-    
-    z-index: 2;
- }
- #buttons{
-    position: absolute;
-    z-index: 2;
- }
- main::after{
-    position: absolute;
- content: "";
- width: 100%;
- height: 350px;
- display: block;
- background: linear-gradient(180deg, rgba(0,0,0,0) 0% ,#000 100%);
-z-index: 1;
-left: 0;
-top: calc(700px - 285px);
- }
- ul{
-    padding-left: 0px;
- }
- #espelhar {
-    transform: rotateY(180deg) rotateX(180deg);
-}
-.borda{
-    border: solid rgba(0, 0, 0, 0.705);
-    border-radius: 50%;
-    padding: 3px;
-}
-.borda2{
-    border: solid rgba(0, 0, 0, 0.705);
-    border-radius: 50%;
-    padding: 3px;
-    background-color: white;
-}
-.borda2:hover{
-    opacity: 50%;
-    cursor: pointer;
-}
-.filme{
-    overflow-x: scroll;
-    list-style: none;
-    white-space: nowrap;
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    transition: .5s;
-    
-}
-.filme:hover{
-    transform: scale(1.2) ;
-    transform: .5s;
-    z-index: 999;
-}
-.filme:hover .filme-info {
-    transform:scale(1);
-    transition: .5s;
-    z-index: 999;
-    
-}
-.filme-info{
-    transform: scale(0);
-}
-.fundo{
-    background-color:#171717 ;
-    height: 80px;
-    border-radius: 0 0 10px 10px;
-    width: 235px;
-    
-}
-
-.filme-scroll::-webkit-scrollbar { 
-  display: none;
-}
-.modal-content , .modal-dialog{
-    background-color: #171717;
-}
-.modal-hero{
-    height: 300px;
-    background-image: url(imagens/img\ boa.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 40px;
-    z-index: 3;
-    
-}
-.modal-dialog{
-    max-width: 600px;
-}
-.modal-hero> img{
-    width: 250px;
-    margin-bottom: 30px;
-    margin-top: 40px;
-    position: relative;
-    z-index: 2;
-}
-.modal-hero button{
-    margin-top: -12px;
-}
-.modal-hero::after{
-    height: 200px;
-    content: "";
-    width: 100%;
-    display: block;
-    position: absolute;
-    left: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0% ,#000 100%);
-    margin-top:-211px;
-    z-index: 1;
-}
-.descricao{
-    font-size: 15px;
-    color: rgb(255, 255, 255) ;
-}
-.filme-elenco{
-    color:rgba(255, 255, 255, 0.5) ;
-}
-.filme-elenco  text{
-    color: rgba(255, 255, 255, 0.842);
-}
-.infos{
-    z-index: 4;
-    position: relative;
-
-}
-.listas:hover{
-    background-color: rgba(128, 128, 128, 0.527);
-    cursor: pointer;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+<style>
+  body {
+    background-image: url(imagens/netflix-background-gs7hjuwvv2g0e9fj.jpg);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+  }
+  .espacamento {
+    margin-top: 30px;
+  }
+  a {
+    color: gray;
+    text-decoration: none;
+  }
+  #linko:hover {
+    color: rgb(78, 77, 77);
+  }
+</style>
 <body>
-
-<div class="modal fade" id="modal-filme">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-hero">
-                <img src="imagens/O-Diabo-De-Cada-Dia-Capa-removebg-preview.png"  alt="">
-                
-                <div class="col-12 infos">
-                        <button class="btn btn-lg botao1"><img height="25" src="imagens/play-circle (1).png" alt=""> assistir</button>
-                        <li><img height="40" src="imagens/play-circle (1).png" class="borda2" alt=""></li>
-                        <li><img height="40" class="borda2" src="imagens/afirmativo.png" alt=""></li>
-                        <li><img height="40" class="borda2" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                </div>
-            </div>
-            <div class="modal-hero-info">
-                <div class="container">
-                        <div class="row">
-                            <div class="col-7 descricao">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, totam quo corrupti vero maxime mollitia fugiat cupiditate unde distinctio quis suscipit expedita sint quod blanditiis rem facilis accusantium quia magni.</p>
-                            </div>
-                            <div class="col-5">
-                                <p class="filme-elenco">Elenco: <text>Josh Duhamel  Anthony  Julie White Rodrigo Friesen</text> <br> <br>
-                                Generos: <text>Açao, aventura, Dramatico.</text><br> <br>
-                                Cenas e momentos: <text>violentos</text>
-                                </p>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="row">
-                            <div class="col-7">
-                                    <h3 class="text-right text-white
-                                    ">Episódeos</h3>
-                            </div>
-                                <div class="col-5 text-right">
-                                    <select class="form-control " name="" id="">
-                                        <option value="">temporada 1</option>
-                                    </select>
-                                </div>
-                        </div>
-                        <br>
-                        <br>
-
-
-                        <div class="row">
-                                <ul class="listas">
-                                    <li class="row">
-                                        <div class="col-1">
-                                            <h3 class="text-white">1</h3>
-                                        </div>
-                                        <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-                                        <div class="col-7"><div class="col-8 offset-3">
-                                            <h6 class="text-white"> nome episodeo</h6>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-                                        </div></div>
-                                    </li>
-                                </ul>
-                        </div>
-
-                        <div class="row">
-                            <ul class="listas">
-                                <li class="row">
-                                    <div class="col-1">
-                                        <h3 class="text-white">1</h3>
-                                    </div>
-                                    <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-                                    <div class="col-7"><div class="col-8 offset-3">
-                                        <h6 class="text-white"> nome episodeo</h6>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-                                    </div></div>
-                                </li>
-                            </ul>
-                    </div>
-                    <div class="row">
-                        <ul class="listas">
-                            <li class="row">
-                                <div class="col-1">
-                                    <h3 class="text-white">1</h3>
-                                </div>
-                                <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-                                <div class="col-7"><div class="col-8 offset-3">
-                                    <h6 class="text-white"> nome episodeo</h6>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-                                </div></div>
-                            </li>
-                        </ul>
-                </div>
-                <div class="row">
-                    <ul class="listas">
-                        <li class="row">
-                            <div class="col-1">
-                                <h3 class="text-white">1</h3>
-                            </div>
-                            <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-                            <div class="col-7"><div class="col-8 offset-3">
-                                <h6 class="text-white"> nome episodeo</h6>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-                            </div></div>
-                        </li>
-                    </ul>
-            </div>
-            <div class="row">
-                <ul class="listas">
-                    <li class="row">
-                        <div class="col-1">
-                            <h3 class="text-white">1</h3>
-                        </div>
-                        <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-                        <div class="col-7"><div class="col-8 offset-3">
-                            <h6 class="text-white"> nome episodeo</h6>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-                        </div></div>
-                    </li>
-                </ul>
+<header>
+  <div class="container-fluid" style="background-image: linear-gradient(rgba(0, 0, 0, 0.397),rgba(0, 0, 0, 0.048));">
+    <img height="90px" src="imagens/Netflix-Logo.png" alt="">
+  </div>
+</header>
+<form class="text-white">
+  <div class="col-6 offset-3" style="background-color: rgba(0, 0, 0, 0.452); padding: 20px; margin-top: 50px;">
+    <h2>Entrar</h2>
+    <br>
+    <input type="email" name="email" id="" class="form-control" placeholder="Email ou Numero de celular">
+    <br>
+    <input type="password" name="senha" id="" class="form-control" placeholder="Senha">
+    <br>
+    <div class="d-grid">
+      <button class="btn btn-lg btn-danger">Entrar</button>
+      <br>
+    </div>
+    <div style="color: gray;">
+      <div class="row">
+        <div class="col">
+          <input type="checkbox" name="" id="lembrar"> <label for="lembrar">Lembre-se de mim</label>
         </div>
-        <div class="row">
-            <ul class="listas">
-                <li class="row">
-                    <div class="col-1">
-                        <h3 class="text-white">1</h3>
-                    </div>
-                    <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-                    <div class="col-7"><div class="col-8 offset-3">
-                        <h6 class="text-white"> nome episodeo</h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-                    </div></div>
-                </li>
-            </ul>
-    </div>
-    <div class="row">
-        <ul class="listas">
-            <li class="row">
-                <div class="col-1">
-                    <h3 class="text-white">1</h3>
-                </div>
-                <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-                <div class="col-7"><div class="col-8 offset-3">
-                    <h6 class="text-white"> nome episodeo</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-                </div></div>
-            </li>
-        </ul>
-</div>
-<div class="row">
-    <ul class="listas">
-        <li class="row">
-            <div class="col-1">
-                <h3 class="text-white">1</h3>
-            </div>
-            <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-            <div class="col-7"><div class="col-8 offset-3">
-                <h6 class="text-white"> nome episodeo</h6>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-            </div></div>
-        </li>
-    </ul>
-</div>
-<div class="row">
-    <ul class="listas">
-        <li class="row">
-            <div class="col-1">
-                <h3 class="text-white">1</h3>
-            </div>
-            <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-            <div class="col-7"><div class="col-8 offset-3">
-                <h6 class="text-white"> nome episodeo</h6>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-            </div></div>
-        </li>
-    </ul>
-</div>
-
-
-
-                        <div class="row">
-                            <ul class="listas">
-                                <li class="row">
-                                    <div class="col-1">
-                                        <h3 class="text-white">1</h3>
-                                    </div>
-                                    <div class="col-4"><img src="imagens/tom h p.jpg" alt=""></div>
-                                    <div class="col-7"><div class="col-8 offset-3">
-                                        <h6 class="text-white"> nome episodeo</h6>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis explicabo, qui </p>
-                                    </div></div>
-                                </li>
-                            </ul>
-                    </div>
-
-                </div>
-            </div>
+        <div class="col text-end">
+          <a id="linko" href="#">precisa de ajuda?</a>
         </div>
+        <br>
+      </div>
+      <div class="espacamento">
+        <img height="15px" style="border-radius: 2px;" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt=""> conectar ao facebook
+      </div>
+      <div style="margin-top: 20px;">
+        Novo por aqui? <span class="text-white">Assine Agora</span>
+      </div>
+      <div class="espacamento" style="font-size: .7em;">
+        esta pagina é protegida pelo google bla bla bla...
+      </div>
     </div>
-</div>
-
-    <header>
-        <div class="container-fluid" style="background-image: linear-gradient(rgba(0, 0, 0, 0.171),rgba(0, 0, 0, 0.171));">
-        <img src="imagens/Netflix-Logo.png" height="90px" alt="logo-netflix">
-            <div style="display: inline-block; ">
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Series</a></li>
-                    <li><a href="#">Filmes</a></li>
-                    <li><a href="#">Mais Recentes</a></li>
-                    <li><a href="#">Minha lista</a></li>
-                </ul>
-            </div>
-    </header>
-    <main class="container-fluid imagens" style="background-image: url(imagens/Design\ sem\ nome\ \(2\).jpg); height: 100vh; background-repeat:no-repeat; background-size: 100vw 100vh;">
-
-    
-            <div class="container-fluid">
-                <div class="row">
-    <div class="col-7" style=" margin-top: 80px;">
-        <h1 class="text-danger" style="position: absolute; top: 120px;">N series</h1>
-        <img class="col-12" src="imagens/O-Diabo-De-Cada-Dia-Capa-removebg-preview.png" height="300">
-        <h1 class="text-white">Top 1 de Hoje no Brasil</h1>
-        <p class="text-white" style="text-shadow: 1px 1px 1px black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptates deserunt labore? Tempora neque rem sapiente nisi placeat exercitationem reprehenderit modi veritatis voluptatum. Dolorum numquam explicabo harum veritatis fugiat in!</p>
-<div id="buttons">
-    
-            <button class="btn btn-lg botao1"><img height="25" src="imagens/play-circle (1).png" alt=""> assistir</button>
-            <button class="btn btn-lg botao" > <img height="25" src="imagens/info.png" alt=""> Mais informações </button>
-</div>
-
-    </div>
-    </div>
-    </div>
-    
-    </main>    
-    <footer>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-8 offset-2">
-                    <h5 class="text-white">Populares da Netflix</h5>
-                </div>
-                <div class="col-12">
-                    <div class="d-flex overflow-auto filme-scroll" style="gap: 10px; white-space: nowrap;">
-                        <ul class="list-unstyled d-flex" style="gap: 20px; padding: 0;">
-                            <li class="filme" data-bs-toggle="modal" data-bs-target="#modal-filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP4 <span style="color: rgb(206, 205, 205);">'Meu Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                            <!-- Repetindo para outros filmes -->
-                            <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP5 <span style="color: rgb(206, 205, 205);">'Outro Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                             <!-- Repetindo para outros filmes -->
-                             <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP5 <span style="color: rgb(206, 205, 205);">'Outro Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                                 <!-- Repetindo para outros filmes -->
-                            <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP5 <span style="color: rgb(206, 205, 205);">'Outro Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                             <!-- Repetindo para outros filmes -->
-                             <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP5 <span style="color: rgb(206, 205, 205);">'Outro Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-8 offset-2">
-                    <h5 class="text-white">Populares da Netflix</h5>
-                </div>
-                <div class="col-12">
-                    <div class="d-flex overflow-auto filme-scroll" style="gap: 10px; white-space: nowrap;">
-                        <ul class="list-unstyled d-flex" style="gap: 20px; padding: 0;">
-                            <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP4 <span style="color: rgb(206, 205, 205);">'Meu Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                            <!-- Repetindo para outros filmes -->
-                            <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP5 <span style="color: rgb(206, 205, 205);">'Outro Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                             <!-- Repetindo para outros filmes -->
-                             <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP5 <span style="color: rgb(206, 205, 205);">'Outro Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                                 <!-- Repetindo para outros filmes -->
-                            <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP5 <span style="color: rgb(206, 205, 205);">'Outro Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                             <!-- Repetindo para outros filmes -->
-                             <li class="filme">
-                                <img src="imagens/tom h p.jpg" class="img-fluid" alt="">
-                                <div class="filme-info">
-                                    <div>
-                                        <ul class="fundo col-6">
-                                            <li><img height="32" src="imagens/play-circle (1).png" class="borda" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/afirmativo.png" id="espelhar" alt=""></li>
-                                            <li><img height="32" class="borda" src="imagens/info.png" alt=""></li>
-                                            <p style="color: gray;">T1:EP5 <span style="color: rgb(206, 205, 205);">'Outro Episódio'</span></p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
